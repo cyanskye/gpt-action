@@ -2,9 +2,15 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Notion Page Creator for GPT",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "This schema defines an API that allows a GPT to create a Notion page with a title and markdown content."
   },
+  "servers": [
+    {
+      "url": "https://api.notion.com/v1",
+      "description": "Official Notion API endpoint"
+    }
+  ],
   "paths": {
     "/create-page": {
       "post": {
