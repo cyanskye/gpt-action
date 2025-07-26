@@ -1,0 +1,53 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Notion Page Creator for GPT",
+    "version": "1.0.0",
+    "description": "This schema defines an API that allows a GPT to create a Notion page with a title and markdown content."
+  },
+  "paths": {
+    "/create-page": {
+      "post": {
+        "summary": "Create a Notion page",
+        "operationId": "createNotionPage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "parentPageId": {
+                    "type": "string",
+                    "description": "The ID of the Notion parent page"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Title of the new Notion page"
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "Markdown content to insert into the page"
+                  }
+                },
+                "required": [
+                  "parentPageId",
+                  "title",
+                  "content"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Page created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  }
+}
